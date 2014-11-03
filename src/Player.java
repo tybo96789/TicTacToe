@@ -35,10 +35,17 @@ public class Player {
     public int getPlay()
     {
         int input = 0;
-        do{
-            System.out.println("Where do you want to play your next move? [1-9]");
-            input = scan.nextInt();
-        }while(input < 1 || input > 9 );
+        try{
+            
+            do{
+                System.out.println("Where do you want to play your next move? [1-9]");
+                input = Integer.parseInt(scan.nextLine());
+            }while(input < 1 || input > 9 );
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+            getPlay();
+        }
         return input;
     }
     
